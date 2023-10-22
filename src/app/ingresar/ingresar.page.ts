@@ -34,5 +34,24 @@ export class IngresarPage implements OnInit {
     console.log(Alumno)
     this.stateService.setNombre = Alumno.nombreUsuario
     this.router.navigate(['/privada'])
+    //Validación de formulario y seteo del nombre rescatado en el stateservice
+    if (Alumno.nombreUsuario == '' || Alumno.contraseña == '' ) {
+      alert('Nombre de usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.');
+    } else {
+      console.log(Alumno.nombreUsuario)
+      console.log('Usuario iniciado correctamente')
+      this.stateService.setNombre = Alumno.nombreUsuario;
+      this.stateService.setUserIsLogged(true);
+      this.router.navigate(['/home']);
+    }
+  }
+  // Se llama a la API
+  llamarApi(){
+    this.stateService.getIsLogged().subscribe((all:any)=>{
+    {
+      console.log(all);
+      this.stateService = all.users;
+    }
+    });
   }
 }

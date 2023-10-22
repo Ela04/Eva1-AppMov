@@ -26,7 +26,7 @@ export class StateService {
   }
   // BehaivorSubject para guardar el estado del login con sus metodos set() y get()
   public isLogged:BehaviorSubject<boolean> = new BehaviorSubject <boolean>(false)
-  getisLogged(){
+  getIsLogged(){
     return this.isLogged.asObservable();
   }
   set setisLogged(dataisLogged:boolean){
