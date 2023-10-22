@@ -1,4 +1,8 @@
-<app-header></app-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Reestablecer Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content class="ion-padding">
   <form action="">
@@ -8,9 +12,13 @@
     </ion-item> <br>
     <ion-item fill="outline">
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input placeholder="Contraseña"></ion-input>
+      <ion-input placeholder="Contraseña" type="password"></ion-input>
+    </ion-item> <br>
+    <ion-item fill="outline">
+      <ion-label position="floating">Confirmar Contraseña</ion-label>
+      <ion-input placeholder="Contraseña" type="password"></ion-input>
     </ion-item>
   </form>
   <br>
-  <ion-button routerLink="/ingresar">Reestablecer</ion-button>
+  <ion-button color="dark" routerLink="/ingresar">Reestablecer</ion-button>
 </ion-content>

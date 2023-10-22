@@ -4,7 +4,15 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-      <div *ngFor="let user of usuarios">
-        <p>{{user.firstName}}</p>
-      </div>
+  
+  <div *ngFor="let user of usuarios" >
+    <p>{{user.firstName}} {{user.lastName}}</p>
+    <li>
+      <ion-checkbox slot="start">Presente</ion-checkbox>
+      <ion-checkbox slot="end">Ausente</ion-checkbox>
+    </li>
+  </div>
 </ion-content>
+<ion-footer>
+  <ion-button expand="block" color="dark" routerLink="/ingresar">Cerrar Sesión</ion-button>
+</ion-footer>
