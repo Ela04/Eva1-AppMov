@@ -24,6 +24,7 @@ export class IngresarPage implements OnInit {
   }
   ngOnInit(){
   }
+  //Se toman los valores del formulario
   grabarAlumno(){
     console.log("Ingresando a la funcion")
     const Alumno={
