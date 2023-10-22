@@ -19,11 +19,6 @@ export class IngresarPage implements OnInit {
     })
   }
   ngOnInit(){
-    // debugger;
-    // this.usu.getisLogged().subscribe(()=>{
-    //   //console.log();
-    //   this.usu = this.grabarAlumno;
-    // });
   }
 
   grabarAlumno(){
@@ -34,13 +29,6 @@ export class IngresarPage implements OnInit {
     }
     console.log(Alumno)
     this.stateService.setNombre = Alumno.nombre
-    this.router.navigate(['/home'])
-  }
-
-  validarAlumno(){
-    this.usu.getisLogged().subscribe((all:any)=>{
-      console.log(all);
-      this.usu = all.users;
-    });
+    this.router.navigate(['/publica'])
   }
 }

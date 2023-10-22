@@ -11,7 +11,7 @@ import { ApiService } from '../state/api.service';
 export class HomePage implements OnInit{
   nombre!: string;
   usuarios!: any;
-  constructor(private router:Router, private stateService:StateService, private usuario:ApiService) {
+  constructor(private router:Router, private stateService:StateService, private usuario:ApiService, /*guard: TestGuard*/) {
     this.stateService.getNombre.subscribe((Alumno)=>{
     
     this.nombre = Alumno;
