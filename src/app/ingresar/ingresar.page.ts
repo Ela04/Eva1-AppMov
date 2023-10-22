@@ -29,6 +29,6 @@ export class IngresarPage implements OnInit {
     }
     console.log(Alumno)
     this.stateService.setNombre = Alumno.nombre
-    this.router.navigate(['/publica'])
+    this.router.navigate(['/privada'])
   }
 }
