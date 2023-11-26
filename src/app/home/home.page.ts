@@ -3,7 +3,6 @@ import { StateService } from '../state/state.service';
 import { Router } from '@angular/router';
 import { ApiService } from '../state/api.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -13,7 +12,7 @@ export class HomePage implements OnInit{
   nombre!: string;
   usuarios!: any;
   constructor(private router:Router, private stateService:StateService, private usuario:ApiService, /*guard: TestGuard*/) {
-    this.stateService.getNombre.subscribe((Alumno)=>{
+    this.stateService.getNombreUsuario.subscribe((Alumno)=>{
     
     this.nombre = Alumno;
     });
@@ -23,12 +22,5 @@ export class HomePage implements OnInit{
       console.log(all);
       this.usuarios = all.users;
     });
-  }
-}
-  constructor(private stateService:StateService) {
-    //this.stateService.getNombreUsuario.subscribe((usuario)=>{
-    debugger;
-      //this.nombre = usuario;
-  //})
   }
 }
