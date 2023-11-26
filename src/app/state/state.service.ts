@@ -21,7 +21,7 @@ export class StateService {
     return this.nombre.asObservable();
   }
   set setNombre(nombre:string){
-     this.nombre.next(nombre);
+    this.nombre.next(nombre);
   }
 
 
