@@ -17,47 +17,24 @@ export interface InterfaceUsuario{
 
 export class IngresarPage implements OnInit {
   formulariousuario:FormGroup;
-  usu!: any;
-  nombre!: string;  constructor(
-    private fb:FormBuilder, 
-    private router:Router, 
-    private stateService:StateService, public guard: TestGuard) { 
+
+  constructor(private fb:FormBuilder, private router:Router, private stateService:StateService) { 
     this.formulariousuario=this.fb.group({
       nombre:[""],
       contraseña:[""],
     })
-    this.stateService.getNombre.subscribe((Alumno)=>{
-      this.nombre = Alumno;
-      });
   }
   ngOnInit(){
   }
-  //Se toman los valores del formulario
+
   grabarAlumno(){
-  //Muestra que ingresa correctamente
-  console.log("Ingresando a la funcion");
-
-  //obtener los datos de usuario
-  const usuario: InterfaceUsuario ={
-    nombre:this.formulariousuario.get('nombre')?.value,
-    password:this.formulariousuario.get('password')?.value
-  }
-
-  //validar datos de usuario
-  //si los datos se cumplen, entra
-  if(usuario.nombre.trim()==''|| usuario.password.trim()==''){
-
-  //nok, enviar una alerta debe completarlos datos del formulario
-  alert('Debe completar todos los campos');
-  return;
-  }
-  //ok, redirecciona al home::mensaje de datos correctos
-  this.router.navigate(['/home']);
-
-  console.log(usuario);
-
-  //ok, guardar nombre de usuario en estado
-  //this.stateService.setNombreUsuario = usuario.nombre
-  
+    console.log("Ingresando a la funcion")
+    const Alumno={
+      nombre:this.formulariousuario.get('nombre')?.value,
+      contraseña:this.formulariousuario.get('contraseña')?.value,
+    }
+    console.log(Alumno)
+    this.stateService.setNombre = Alumno.nombre
+    this.router.navigate(['home'])
   }
 }
