@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { StateService } from '../state/state.service';
-import { Router } from '@angular/router';
+import { CanActivateChildFn, Router, mapToCanActivate } from '@angular/router';
+import { TestGuard } from "../guards/test.guard";
 
 export interface InterfaceUsuario{
   nombre:String,
@@ -16,18 +17,22 @@ export interface InterfaceUsuario{
 
 export class IngresarPage implements OnInit {
   formulariousuario:FormGroup;
-  constructor(
+  usu!: any;
+  nombre!: string;  constructor(
     private fb:FormBuilder, 
     private router:Router, 
-    private stateService:StateService) { 
+    private stateService:StateService, public guard: TestGuard) { 
     this.formulariousuario=this.fb.group({
       nombre:[""],
       contraseña:[""],
     })
+    this.stateService.getNombre.subscribe((Alumno)=>{
+      this.nombre = Alumno;
+      });
   }
   ngOnInit(){
   }
-
+  //Se toman los valores del formulario
   grabarAlumno(){
   //Muestra que ingresa correctamente
   console.log("Ingresando a la funcion");
