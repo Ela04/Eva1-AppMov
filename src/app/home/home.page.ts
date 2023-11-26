@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { StateService } from '../state/state.service';
-import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -8,12 +8,10 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
   nombre!: string;
-  constructor(private router:Router, private stateService:StateService) {
-
-  this.stateService.getNombre.subscribe((Alumno)=>{
+  constructor(private stateService:StateService) {
+    //this.stateService.getNombreUsuario.subscribe((usuario)=>{
     debugger;
-    this.nombre = Alumno;
-  })
-
-
-}}
+      //this.nombre = usuario;
+  //})
+  }
+}

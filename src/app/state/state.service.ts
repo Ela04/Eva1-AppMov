@@ -2,28 +2,30 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StateService {
+  //Titulo de la pagina de inicio
+  titulo: BehaviorSubject<string> = new BehaviorSubject('RegistrAPP Ingreso de Alumnos');
 
-  titulo:BehaviorSubject<string> = new BehaviorSubject('Ingreso de Alumno');
-  
-  get getTitulo(){
+  get getTitulo() {
     return this.titulo.asObservable();
   }
 
-  set setTitulo(titulo:string){
+  set setTitulo(titulo: string) {
     this.titulo.next(titulo);
   }
 
-  nombre: BehaviorSubject<string> = new BehaviorSubject('');
-  get getNombre(){
-    return this.nombre.asObservable();
-  }
-  set setNombre(nombre:string){
-     this.nombre.next(nombre);
+  //Nombre de Usuario
+  private nombreUsuario: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
+  public getNombreUsuario() {
+    return this.nombreUsuario.asObservable();
   }
 
+  public setNombreUsuario(nombre: string) {
+    this.nombreUsuario.next(nombre);
+  }
 
-  constructor() { }
+  constructor() {}
 }
