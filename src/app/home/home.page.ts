@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../state/api.service';
 import { StateService } from '../state/state.service';
 import { FotoService } from '../state/foto.service'; 
 
@@ -13,7 +12,6 @@ export class HomePage implements OnInit {
   nombre!: string;
 
   constructor(
-    private api: ApiService,
     private stateService: StateService,
     public foto: FotoService
   ) {
@@ -25,13 +23,7 @@ export class HomePage implements OnInit {
 
   async ngOnInit() {
     await this.foto.loadSaved();
-    //Api obtine la lista de los usuarios
-    this.api.getUsers().subscribe((all) => {
-      console.log(all);
-      this.usuarios = all.users;
-    });
   }
-
   //Añde la camara creo
   addPhotoToGallery() {
     this.foto.addNewToGallery();

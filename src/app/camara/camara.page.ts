@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FotoService } from '../state/foto.service'; 
+import { StateService } from '../state/state.service';
 
 @Component({
   selector: 'app-camara',
@@ -7,7 +8,13 @@ import { FotoService } from '../state/foto.service';
   styleUrls: ['./camara.page.scss'],
 })
 export class CamaraPage implements OnInit {
-  constructor(public foto: FotoService) {}
+  nombre!: string;
+  constructor(public foto: FotoService, private stateService: StateService) {
+    this.stateService.getNombre.subscribe((Alumno) => {
+      debugger;
+      this.nombre = Alumno;
+    });
+  }
 
   addPhotoToGallery() {
     this.foto.addNewToGallery();
