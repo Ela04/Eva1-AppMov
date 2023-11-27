@@ -22,12 +22,6 @@ const routes: Routes = [
         (m) => m.RestablecerPageModule
       ),
   },
-
-  {
-    path: 'publica',
-    loadChildren: () =>
-      import('./publica/publica.module').then((m) => m.PublicaPageModule),
-  },
   {
     path: 'privada',
     canActivate: [TestGuard],

@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Bienvenido {{nombre}} </ion-title>
+    <ion-title>Bienvenido {{namae}} </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
+    <!-- Lista de Alumnos -->
   <div *ngFor="let user of usuarios" >
     <p>{{user.firstName}} {{user.lastName}}</p>
     <li>

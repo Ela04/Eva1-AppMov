@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StateService } from '../state/state.service';
-import { Router } from '@angular/router';
 import { ApiService } from '../state/api.service';
+import { StateService } from '../state/state.service';
 
 @Component({
   selector: 'app-home',
@@ -9,18 +8,19 @@ import { ApiService } from '../state/api.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  nombre!: string;
+  namae!: string;
   usuarios!: any;
   constructor(
-    private router: Router,
-    private stateService: StateService,
-    private usuario: ApiService /*guard: TestGuard*/
-  ) {
-    this.stateService.getNombreUsuario().subscribe((Alumno) => {
-      this.nombre = Alumno;
-    });
-  }
+    private usuario: ApiService,
+    private nom:StateService,
+  ) { 
+      this.nom.getNombreUsuario().subscribe((n:String) => {
+        console.log(n);
+        this.namae;
+      }); 
+    }
   ngOnInit() {
+    //Api obtine la lista de los usuarios
     this.usuario.getUsers().subscribe((all) => {
       console.log(all);
       this.usuarios = all.users;

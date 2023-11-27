@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ApiService } from '../state/api.service';
+//import { ApiService } from '../state/api.service';
 import { StateService } from '../state/state.service';
 import {  Router } from '@angular/router';
 
-export interface InterfaceUsuario{
-  nombre:String,
-  password:String,
+export interface InterfaceUsuario {
+  nombre: String;
+  contraseña: String;
 }
 @Component({
   selector: 'app-ingresar',
   templateUrl: './ingresar.page.html',
   styleUrls: ['./ingresar.page.scss'],
 })
-export class IngresarPage implements OnInit {
+export class IngresarPage {
   formulariousuario: FormGroup;
   usuarios!: any;
 
@@ -21,21 +21,22 @@ export class IngresarPage implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private stateService: StateService,
-    private api: ApiService
+    //private api: ApiService
   ) {
     this.formulariousuario = this.fb.group({
       nombre: [''],
       contraseña: [''],
     });
   }
-  ngOnInit() {
-    this.api.getUsers().subscribe((all) => {
-      console.log(all);
-      this.usuarios = all.users;
-    });
-  }
+  //Puedes ver la lista de los Alumnos con esto
+  //ngOnInit() {
+  //  this.api.getUsers().subscribe((all) => {
+  //    console.log(all);
+  //    this.usuarios = all.users;
+  //  });
+  //}
 
-  //Se toman los valores del formulario
+  //Se toman los valores del formulario al ingresar
   grabarAlumno() {
     console.log('Ingresando a la funcion');
     const Alumno = {
@@ -43,9 +44,9 @@ export class IngresarPage implements OnInit {
       contraseña: this.formulariousuario.get('contraseña')?.value,
     };
     console.log(Alumno);
+    //Usa el servicio
     this.stateService.setNombreUsuario = Alumno.nombreUsuario;
-    this.router.navigate(['/privada']);
-    //Validación de formulario y seteo del nombre rescatado en el stateservice
+    //Validación de formulario(no puede estar vacio)
     if (Alumno.nombreUsuario == '' || Alumno.contraseña == '') {
       alert(
         'Nombre de usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.'
@@ -53,7 +54,9 @@ export class IngresarPage implements OnInit {
     } else {
       console.log(Alumno.nombreUsuario);
       console.log('Usuario iniciado correctamente');
+      //seteo del nombre rescatado en el stateservice
       this.stateService.setNombreUsuario = Alumno.nombreUsuario;
+      //estado de la sesion en el servicio
       this.stateService.setUserIsLogged(true);
       this.router.navigate(['/home']);
     }
