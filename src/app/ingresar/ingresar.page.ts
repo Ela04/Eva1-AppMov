@@ -7,7 +7,6 @@ export interface InterfaceUsuario{
   nombre:String,
   password:String,
 }
-
 @Component({
   selector: 'app-ingresar',
   templateUrl: './ingresar.page.html',
