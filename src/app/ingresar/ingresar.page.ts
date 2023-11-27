@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StateService } from '../state/state.service';
 import { Router } from '@angular/router';
 
@@ -21,10 +21,11 @@ export class IngresarPage {
     private stateService: StateService,
   ) {
     this.formulariousuario = this.fb.group({
-      nombre: [''],
+      nombre: ['',Validators.required, Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')],
       contraseña: [''],
     });
   }
+
   //Se toman los valores del formulario al ingresar
   grabarAlumno(){
     console.log('Ingresando a la funcion');
