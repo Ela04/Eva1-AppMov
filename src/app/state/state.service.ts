@@ -20,18 +20,20 @@ export class StateService {
   }
 
   //Nombre de Usuario
-  private nombreUsuario: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  nombre: BehaviorSubject<string> = new BehaviorSubject('');
 
-  public getNombreUsuario() {
-    return this.nombreUsuario.asObservable();
+  get getNombre() {
+    return this.nombre.asObservable();
   }
 
-  public setNombreUsuario(nombre: string) {
-    this.nombreUsuario.next(nombre);
+  set setNombreUsuario(nombre: string) {
+    this.nombre.next(nombre);
   }
 
   // BehaivorSubject para guardar el estado del login con sus metodos set() y get()
-  public isLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public isLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
   getIsLogged() {
     return this.isLogged.asObservable();
   }
@@ -39,7 +41,8 @@ export class StateService {
     this.isLogged.next(dataisLogged);
   }
 
-  private isLoggedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private isLoggedSubject: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false);
   userIsLogged(): Observable<boolean> {
     return this.isLoggedSubject.asObservable();
   }

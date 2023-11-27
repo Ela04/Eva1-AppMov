@@ -17,12 +17,11 @@ export class HomePage implements OnInit {
     private stateService: StateService,
     public foto: FotoService
   ) {
-
   this.stateService.getNombre.subscribe((Alumno)=>{
     debugger;
     this.nombre = Alumno;
   })
-  }
+  };
 
   async ngOnInit() {
     await this.foto.loadSaved();
