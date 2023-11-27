@@ -13,6 +13,23 @@
     </li>
   </div>
 </ion-content>
-<ion-footer>
-  <ion-button expand="block" color="dark" routerLink="/ingresar">Cerrar Sesión</ion-button>
-</ion-footer>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button>
+      <a tab="tab1" href="../privada/privada.page.html">
+        <ion-icon aria-hidden="true" name="triangle"></ion-icon>
+        <ion-label>Camera</ion-label>
+      </a>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab2" href="../privada/privada.page.html">
+      <ion-icon name="images"></ion-icon>
+      <ion-label>Asistencia</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab3" href="../ingresar/ingresar.page.html">
+      <ion-icon aria-hidden="true" name="square"></ion-icon>
+      <ion-label>Cerrar Sesión</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
