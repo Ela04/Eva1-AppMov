@@ -14,12 +14,11 @@ export class TestGuard implements CanActivate {
   canActivate(router: ActivatedRouteSnapshot): boolean {
     console.log(router);
     let isLogged: Boolean=false;
-    this.stateService.userIsLogged().subscribe((l:any) => {
+    this.stateService.userIsLogged().subscribe((l) => {
         isLogged = l;
       }
     );
     if(isLogged == false){
-    
       this.router.navigate(['/ingresar']);
     }
     return true;
