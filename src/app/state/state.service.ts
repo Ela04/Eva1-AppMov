@@ -22,7 +22,7 @@ export class StateService {
   //Nombre de Usuario
   private nombreUsuario: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  public getNombreUsuario() {
+  get getNombreUsuario() {
     return this.nombreUsuario.asObservable();
   }
 
