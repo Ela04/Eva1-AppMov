@@ -14,9 +14,8 @@ export class TestGuard implements CanActivate {
   canActivate(router: ActivatedRouteSnapshot): boolean {
     console.log(router);
     let isLogged: Boolean=false;
-    this.stateService.userIsLogged().subscribe(
-      (logged) => {
-        isLogged = logged;
+    this.stateService.userIsLogged().subscribe((l:any) => {
+        isLogged = l;
       }
     );
     if(isLogged == false){

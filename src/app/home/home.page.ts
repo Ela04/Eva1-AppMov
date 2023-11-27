@@ -13,7 +13,6 @@ export class HomePage implements OnInit{
   usuarios!: any;
   constructor(private router:Router, private stateService:StateService, private usuario:ApiService, /*guard: TestGuard*/) {
     this.stateService.getNombreUsuario.subscribe((Alumno)=>{
-    
     this.nombre = Alumno;
     });
   }; 

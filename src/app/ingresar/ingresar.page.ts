@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { StateService } from '../state/state.service';
-import { CanActivateChildFn, Router, mapToCanActivate } from '@angular/router';
-import { TestGuard } from "../guards/test.guard";
+import {  Router } from '@angular/router';
 
 export interface InterfaceUsuario{
   nombre:String,
@@ -14,27 +13,38 @@ export interface InterfaceUsuario{
   templateUrl: './ingresar.page.html',
   styleUrls: ['./ingresar.page.scss'],
 })
-
 export class IngresarPage implements OnInit {
-  formulariousuario:FormGroup;
+  formulariousuario: FormGroup;
 
-  constructor(private fb:FormBuilder, private router:Router, private stateService:StateService) { 
-    this.formulariousuario=this.fb.group({
-      nombre:[""],
-      contraseña:[""],
-    })
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private stateService: StateService
+  ) {
+    this.formulariousuario = this.fb.group({
+      nombre: [''],
+      contraseña: [''],
+    });
   }
-  ngOnInit(){
+  ngOnInit() {}
+
+  grabarAlumno() {
+    console.log('Ingresando a la funcion');
+    const Alumno = {
+      nombre: this.formulariousuario.get('nombre')?.value,
+      contraseña: this.formulariousuario.get('contraseña')?.value,
+    };
+    console.log(Alumno);
+    this.stateService.setNombreUsuario = Alumno.nombre;
+    this.router.navigate(['home']);
   }
 
-  grabarAlumno(){
-    console.log("Ingresando a la funcion")
-    const Alumno={
-      nombre:this.formulariousuario.get('nombre')?.value,
-      contraseña:this.formulariousuario.get('contraseña')?.value,
-    }
-    console.log(Alumno)
-    this.stateService.setNombre = Alumno.nombre
-    this.router.navigate(['home'])
+  llamarApi() {
+    this.stateService.getNombreUsuario().subscribe((all: any) => {
+      {
+        console.log(all);
+        this.stateService = all.users;
+      }
+    });
   }
 }
