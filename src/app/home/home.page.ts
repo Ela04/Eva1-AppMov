@@ -10,19 +10,18 @@ import { FotoService } from '../state/foto.service';
 })
 export class HomePage implements OnInit {
   usuarios!: any;
-  namae!: any;
+  nombre!: string;
 
   constructor(
-    private api: ApiService, 
-    private nom: StateService,
-    public foto:FotoService,
+    private api: ApiService,
+    private stateService: StateService,
+    public foto: FotoService
   ) {
-    //Obtener nombre usuario para mostralo en home.html
-    this.nom.getNombreUsuario().subscribe((nombreUsuario: string) => {
-      //debugger;
-      console.log(nombreUsuario);
-      this.namae = nombreUsuario;
-    });
+
+  this.stateService.getNombre.subscribe((Alumno)=>{
+    debugger;
+    this.nombre = Alumno;
+  })
   }
 
   async ngOnInit() {
