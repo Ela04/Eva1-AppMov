@@ -11,16 +11,16 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () =>
-      import('./home/home.module').then((m) => m.HomePageModule),
     canActivate: [TestGuard],
+    loadChildren: () =>
+      import('./home/home.module').then(
+        (m) => m.HomePageModule),
   },
   {
     path: 'restablecer',
     loadChildren: () =>
       import('./restablecer/restablecer.module').then(
-        (m) => m.RestablecerPageModule
-      ),
+        (m) => m.RestablecerPageModule),
   },
   {
     path: 'privada',

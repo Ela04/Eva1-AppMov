@@ -5,8 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageRoutingModule } from './home-routing.module';
-import { ApiService } from '../state/api.service'; 
-import { IngresarPage } from '../ingresar/ingresar.page';
 
 @NgModule({
   imports: [
@@ -17,7 +15,7 @@ import { IngresarPage } from '../ingresar/ingresar.page';
     HttpClientModule
   ],
   declarations: [HomePage],
-  providers: [ApiService, IngresarPage],
+  providers: []
 })
 export class HomePageModule {}
 

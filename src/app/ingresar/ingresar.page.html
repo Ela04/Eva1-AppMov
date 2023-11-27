@@ -1,18 +1,18 @@
 <app-header></app-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" color = "tertiary">
   <form [formGroup]="formulariousuario" action="">
-    <ion-item fill="outline">
+    <ion-item fill="outline" color = "primary">
       <ion-label position="floating">Nombre</ion-label>
       <ion-input placeholder="Nombre" formControlName="nombre"></ion-input>
     </ion-item> <br>
-    <ion-item fill="outline">
+    <ion-item fill="outline" color = "primary">
       <ion-label position="floating" >Contraseña</ion-label>
       <ion-input  type='password' placeholder="Contraseña" formControlName="contraseña"></ion-input>
     </ion-item>
   </form>
   <br>
-  <ion-button (click)="grabarAlumno()">Ingresar</ion-button> 
+  <ion-button color="secondary" (click)="grabarAlumno()">Ingresar</ion-button> 
   <br>
   <a routerLink="/restablecer">Recuperar Contraseña</a>
 </ion-content>
