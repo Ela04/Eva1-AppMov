@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StateService } from '../state/state.service';
 import { Router } from '@angular/router';
@@ -12,22 +12,27 @@ export interface InterfaceUsuario {
   templateUrl: './ingresar.page.html',
   styleUrls: ['./ingresar.page.scss'],
 })
-export class IngresarPage {
+export class IngresarPage implements OnInit {
   formulariousuario: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private stateService: StateService,
+    private stateService: StateService
   ) {
     this.formulariousuario = this.fb.group({
-      nombre: ['',Validators.required, Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')],
+      nombre: [
+        '',
+        Validators.required,
+        Validators.minLength(3),
+        Validators.pattern('^[a-zA-Z]+$'),
+      ],
       contraseña: [''],
     });
   }
 
   //Se toman los valores del formulario al ingresar
-  grabarAlumno(){
+  grabarAlumno() {
     console.log('Ingresando a la funcion');
     const Alumno = {
       nombreUsuario: this.formulariousuario.get('nombre')?.value,
@@ -48,5 +53,8 @@ export class IngresarPage {
       //seteo del nombre rescatado en el stateservice
       this.stateService.setNombreUsuario = Alumno.nombreUsuario;
     }
-  };
+  }
+
+  ngOnInit() {
+  }
 }

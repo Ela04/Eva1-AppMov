@@ -27,11 +27,13 @@ const routes: Routes = [
     canActivate: [TestGuard],
     loadChildren: () =>
       import('./privada/privada.module').then((m) => m.PrivadaPageModule),
-  },  {
-    path: 'camara',
-    loadChildren: () => import('./camara/camara.module').then( m => m.CamaraPageModule)
   },
-
+  {
+    path: 'camara',
+    loadChildren: () =>
+      import('./camara/camara.module').then((m) => m.CamaraPageModule),
+    canActivate: [TestGuard],
+  },
 ];
 
 @NgModule({

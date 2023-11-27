@@ -11,7 +11,6 @@ export class CamaraPage implements OnInit {
   nombre!: string;
   constructor(public foto: FotoService, private stateService: StateService) {
     this.stateService.getNombre.subscribe((Alumno) => {
-      debugger;
       this.nombre = Alumno;
     });
   }

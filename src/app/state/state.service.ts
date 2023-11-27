@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class StateService {
   //Titulo de la pagina de inicio
   titulo: BehaviorSubject<string> = new BehaviorSubject(
-    'RegistrAPP Ingreso de Alumnos'
+    'RegistrAPP'
   );
 
   get getTitulo() {

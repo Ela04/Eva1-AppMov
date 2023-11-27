@@ -16,7 +16,6 @@ export class HomePage implements OnInit {
     public foto: FotoService
   ) {
   this.stateService.getNombre.subscribe((Alumno)=>{
-    debugger;
     this.nombre = Alumno;
   })
   };
