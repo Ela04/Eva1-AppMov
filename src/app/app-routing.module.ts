@@ -3,31 +3,37 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { TestGuard } from './guards/test.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'publica', pathMatch:'full'},
-  { 
-    path: 'ingresar', 
-    loadChildren: () => import('./ingresar/ingresar.module').then( m => m.IngresarPageModule)
+  { path: '', redirectTo: 'ingresar', pathMatch: 'full' },
+  {
+    path: 'ingresar',
+    loadChildren: () =>
+      import('./ingresar/ingresar.module').then((m) => m.IngresarPageModule),
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canActivate: [TestGuard]
+    loadChildren: () =>
+      import('./home/home.module').then((m) => m.HomePageModule),
+    canActivate: [TestGuard],
   },
   {
     path: 'restablecer',
-    loadChildren: () => import('./restablecer/restablecer.module').then( m => m.RestablecerPageModule)
+    loadChildren: () =>
+      import('./restablecer/restablecer.module').then(
+        (m) => m.RestablecerPageModule
+      ),
   },
-  
+
   {
     path: 'publica',
-    loadChildren: () => import('./publica/publica.module').then( m => m.PublicaPageModule)
+    loadChildren: () =>
+      import('./publica/publica.module').then((m) => m.PublicaPageModule),
   },
   {
     path: 'privada',
     canActivate: [TestGuard],
-    loadChildren: () => import('./privada/privada.module').then( m => m.PrivadaPageModule)
+    loadChildren: () =>
+      import('./privada/privada.module').then((m) => m.PrivadaPageModule),
   },
-
 ];
 
 @NgModule({
