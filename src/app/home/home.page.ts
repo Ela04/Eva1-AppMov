@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../state/api.service';
-import { IngresarPage } from '../ingresar/ingresar.page';
-import { Observable } from 'rxjs';
+import { StateService } from '../state/state.service';
+
 
 @Component({
   selector: 'app-home',
@@ -11,14 +11,12 @@ import { Observable } from 'rxjs';
 export class HomePage implements OnInit {
   usuarios!: any;
   namae!: any;
-  constructor(private api: ApiService, private nom: IngresarPage) {}
-
-  Obtener(): Observable<any> {
+  constructor(private api: ApiService, private nom: StateService) {
     //Obtener nombre usuario para mostralo en home.html
-    this.nom.grabarAlumno().subscribe((namae: any) => {
+    this.nom.setNombreUsuario(Alumno.nombreUsuario).subscribe((na: any) => {
       debugger;
-      console.log(namae);
-      return this.namae = namae;
+      console.log(na);
+      this.namae = na.nombreUsuario;
     });
   }
 

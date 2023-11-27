@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { StateService } from '../state/state.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 export interface InterfaceUsuario {
   nombre: String;
@@ -43,8 +42,8 @@ export class IngresarPage {
       console.log(Alumno.nombreUsuario);
       console.log('Usuario iniciado correctamente');
       //estado de la sesion en el servicio
-      this.stateService.setUserIsLogged(true),
-      this.router.navigate(['/home']),
+      this.stateService.setUserIsLogged(true);
+      this.router.navigate(['/home']);
       //seteo del nombre rescatado en el stateservice
       this.stateService.setNombreUsuario = Alumno.nombreUsuario;
     }
