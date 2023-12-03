@@ -13,14 +13,14 @@ const routes: Routes = [
     path: 'home',
     canActivate: [TestGuard],
     loadChildren: () =>
-      import('./home/home.module').then(
-        (m) => m.HomePageModule),
+      import('./home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: 'restablecer',
     loadChildren: () =>
       import('./restablecer/restablecer.module').then(
-        (m) => m.RestablecerPageModule),
+        (m) => m.RestablecerPageModule
+      ),
   },
   {
     path: 'privada',
@@ -33,11 +33,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./camara/camara.module').then((m) => m.CamaraPageModule),
     canActivate: [TestGuard],
-  },  {
-    path: 'profe',
-    loadChildren: () => import('./profe/profe.module').then( m => m.ProfePageModule)
   },
-
+  {
+    path: 'profe',
+    canActivate: [TestGuard],
+    loadChildren: () =>
+      import('./profe/profe.module').then((m) => m.ProfePageModule),
+  },
 ];
 
 @NgModule({

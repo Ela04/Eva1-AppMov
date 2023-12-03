@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { StateService } from '../state/state.service';
 import { ApiService } from '../state/api.service';
+
 @Component({
   selector: 'app-profe',
   templateUrl: './profe.page.html',
   styleUrls: ['./profe.page.scss'],
 })
-export class ProfePage {
-  usuarios!: any;
+export class ProfePage implements OnInit{
+  usuarios!:any;
   nombre!: string;
 
   constructor(
@@ -18,4 +19,13 @@ export class ProfePage {
     this.nombre = Alumno;
   })
   };
+
+  ngOnInit() {
+    //Api obtine la lista de los usuarios
+    this.api.getUsers().subscribe((all) => {
+      debugger;
+      console.log(all);
+      this.usuarios = all.users;
+    });
+  }
 }
