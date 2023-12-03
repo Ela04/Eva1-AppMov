@@ -33,7 +33,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./camara/camara.module').then((m) => m.CamaraPageModule),
     canActivate: [TestGuard],
+  },  {
+    path: 'profe',
+    loadChildren: () => import('./profe/profe.module').then( m => m.ProfePageModule)
   },
+
 ];
 
 @NgModule({
