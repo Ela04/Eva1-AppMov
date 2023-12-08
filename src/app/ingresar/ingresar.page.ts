@@ -31,6 +31,52 @@ export class IngresarPage implements OnInit {
     });
   }
 
+  grabarUsuario() {
+    const credencialesAlumno = {
+      nombre: 'alumno',
+      contraseña: '1234',
+    };
+    const credencialesDocente = {
+      nombreDocente: 'Dusty',
+      contraDocente: '1234',
+    };
+    //console.log('Ingresando a la funcion');
+    const Usuario = {
+      nombreUsuario: this.formulariousuario.get('nombre')?.value,
+      contraseña: this.formulariousuario.get('contraseña')?.value,
+    };
+    //Valida al alumno
+    if (
+      Usuario.nombreUsuario == credencialesAlumno.nombre &&
+      Usuario.contraseña == credencialesAlumno.contraseña
+    ) {
+      console.log(Usuario.nombreUsuario);
+      console.log('Usuario iniciado correctamente');
+      //estado de la sesion en el servicio
+      this.stateService.setUserIsLogged(true);
+      this.router.navigate(['/home']);
+      //seteo del nombre rescatado en el stateservice
+      this.stateService.setNombreUsuario = Usuario.nombreUsuario;
+    } //Valida al docente
+    if (
+      Usuario.nombreUsuario == credencialesDocente.nombreDocente &&
+      Usuario.contraseña == credencialesDocente.contraDocente
+    ) {
+      console.log(Usuario.nombreUsuario);
+      console.log('Usuario iniciado correctamente');
+      //estado de la sesion en el servicio
+      this.stateService.setUserIsLogged(true);
+      this.router.navigate(['/profe']);
+      //seteo del nombre rescatado en el stateservice
+      this.stateService.setNombreUsuario = Usuario.nombreUsuario;
+    }
+    if (Usuario.nombreUsuario == '' || Usuario.contraseña == '') {
+      alert(
+        'Nombre de usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.'
+      );
+    }
+  }
+  ngOnInit() {}
   //Se toman los valores del formulario al ingresar
   /*grabarAlumno() {
     const credencialesAlumno = {
@@ -58,51 +104,4 @@ export class IngresarPage implements OnInit {
       this.stateService.setNombreUsuario = Alumno.nombreUsuario;
     }
   }*/
-  grabarUsuario() {
-    const credencialesAlumno = {
-      nombre: 'alumno',
-      contraseña: '1234',
-    };
-    const credencialesDocente = {
-      nombreDocente: 'Dusty',
-      contraDocente: '1234',
-    };
-    //console.log('Ingresando a la funcion');
-    const Usuario = {
-      nombreUsuario: this.formulariousuario.get('nombre')?.value,
-      contraseña: this.formulariousuario.get('contraseña')?.value,
-    };
-
-    //Valida al alumno
-    if (
-      Usuario.nombreUsuario == credencialesAlumno.nombre &&
-      Usuario.contraseña == credencialesAlumno.contraseña
-    ) {
-      console.log(Usuario.nombreUsuario);
-      console.log('Usuario iniciado correctamente');
-      //estado de la sesion en el servicio
-      this.stateService.setUserIsLogged(true);
-      this.router.navigate(['/home']);
-      //seteo del nombre rescatado en el stateservice
-      this.stateService.setNombreUsuario = Usuario.nombreUsuario;
-    }//Valida al docente
-    if (
-      Usuario.nombreUsuario == credencialesDocente.nombreDocente &&
-      Usuario.contraseña == credencialesDocente.contraDocente
-    ) {
-      console.log(Usuario.nombreUsuario);
-      console.log('Usuario iniciado correctamente');
-      //estado de la sesion en el servicio
-      this.stateService.setUserIsLogged(true);
-      this.router.navigate(['/profe']);
-      //seteo del nombre rescatado en el stateservice
-      this.stateService.setNombreUsuario = Usuario.nombreUsuario;
-    } if (Usuario.nombreUsuario == '' || Usuario.contraseña == '') {
-      alert(
-        'Nombre de usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.'
-      );
-    }
-  }
-
-  ngOnInit() {}
 }
