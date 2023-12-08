@@ -97,12 +97,12 @@ export class IngresarPage implements OnInit {
       this.router.navigate(['/profe']);
       //seteo del nombre rescatado en el stateservice
       this.stateService.setNombreUsuario = Usuario.nombreUsuario;
-    } else {
+    } if (Usuario.nombreUsuario == '' || Usuario.contraseña == '') {
       alert(
         'Nombre de usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.'
       );
     }
-  }
+    }
 
   ngOnInit() {}
 }
