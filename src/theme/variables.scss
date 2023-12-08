@@ -98,10 +98,14 @@ p {
   border-radius: 5px;
 } 
 
-ion-menu { 
+ion-menu::part(backdrop) {
+  background-color: #E9175E;
+}
 
+ion-menu::part(container) {
+  border-radius: 0 20px 20px 0;
 
-  
+  box-shadow: 4px 0px 16px #CC527B;
 }
 
 ion-button {
