@@ -7,18 +7,15 @@ import { ApiService } from '../state/api.service';
   templateUrl: './profe.page.html',
   styleUrls: ['./profe.page.scss'],
 })
-export class ProfePage implements OnInit{
-  usuarios!:any;
+export class ProfePage implements OnInit {
+  usuarios!: any;
   nombre!: string;
 
-  constructor(
-    private stateService: StateService,
-    public api: ApiService,
-  ) {
-  this.stateService.getNombre.subscribe((Alumno)=>{
-    this.nombre = Alumno;
-  })
-  };
+  constructor(private stateService: StateService, public api: ApiService) {
+    this.stateService.getNombre.subscribe((Alumno) => {
+      this.nombre = Alumno;
+    });
+  }
 
   ngOnInit() {
     //Api obtine la lista de los usuarios
@@ -28,4 +25,15 @@ export class ProfePage implements OnInit{
       this.usuarios = all.users;
     });
   }
+  //alerta guardar
+  public alertButtons = [
+    {
+      text: 'No',
+      cssClass: 'alert-button-cancel',
+    },
+    {
+      text: 'Si',
+      cssClass: 'alert-button-confirm',
+    },
+  ];
 }
