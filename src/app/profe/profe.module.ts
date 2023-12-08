@@ -8,12 +8,17 @@ import { ProfePageRoutingModule } from './profe-routing.module';
 
 import { ProfePage } from './profe.page';
 
+//importar libreria QR 
+
+import { QRCodeModule } from 'angularx-qrcode';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfePageRoutingModule
+    ProfePageRoutingModule,
+    QRCodeModule,
   ],
   declarations: [ProfePage]
 })

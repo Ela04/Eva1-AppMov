@@ -8,12 +8,17 @@ import { CamaraPageRoutingModule } from './camara-routing.module';
 
 import { CamaraPage } from './camara.page';
 
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     CamaraPageRoutingModule
+  ],
+  providers: [
+    BarcodeScanner
   ],
   declarations: [CamaraPage]
 })
