@@ -7,18 +7,16 @@
 <ion-content class="ion-padding">
   <form action="">
     <ion-item fill="outline">
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input placeholder="Nombre"></ion-input>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input placeholder="Correo"></ion-input>
     </ion-item> <br>
-    <ion-item fill="outline">
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input placeholder="Contraseña" type="password"></ion-input>
-    </ion-item> <br>
-    <ion-item fill="outline">
-      <ion-label position="floating">Confirmar Contraseña</ion-label>
-      <ion-input placeholder="Contraseña" type="password"></ion-input>
-    </ion-item>
   </form>
   <br>
-  <ion-button color="dark" routerLink="/ingresar">Reestablecer</ion-button>
+  <ion-button id="present-alert" color="dark" routerLink="/ingresar">Reestablecer</ion-button>
+  <ion-alert
+    trigger="present-alert"
+    header="Reestablecer contraseña enviado"
+    message="Revise su correo electronico para cambiar la contraseña"
+    [buttons]="alertButtons"
+  ></ion-alert>
 </ion-content>

@@ -23,7 +23,7 @@ export class HomePage implements OnInit {
   async ngOnInit() {
     await this.foto.loadSaved();
   }
-  //Añde la camara creo
+  //Añde la camara 
   addPhotoToGallery() {
     this.foto.addNewToGallery();
   }

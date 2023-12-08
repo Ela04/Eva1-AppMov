@@ -60,7 +60,7 @@ export class IngresarPage implements OnInit {
   }*/
   grabarUsuario() {
     const credencialesAlumno = {
-      nombreUsuario: 'alumno',
+      nombre: 'alumno',
       contraseña: '1234',
     };
     const credencialesDocente = {
@@ -75,7 +75,7 @@ export class IngresarPage implements OnInit {
 
     //Valida al alumno
     if (
-      Usuario.nombreUsuario == credencialesAlumno.nombreUsuario &&
+      Usuario.nombreUsuario == credencialesAlumno.nombre &&
       Usuario.contraseña == credencialesAlumno.contraseña
     ) {
       console.log(Usuario.nombreUsuario);
@@ -85,9 +85,7 @@ export class IngresarPage implements OnInit {
       this.router.navigate(['/home']);
       //seteo del nombre rescatado en el stateservice
       this.stateService.setNombreUsuario = Usuario.nombreUsuario;
-    }
-
-    //Valida al docente
+    }//Valida al docente
     if (
       Usuario.nombreUsuario == credencialesDocente.nombreDocente &&
       Usuario.contraseña == credencialesDocente.contraDocente

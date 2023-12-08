@@ -23,7 +23,7 @@ export class ProfePage implements OnInit{
   ngOnInit() {
     //Api obtine la lista de los usuarios
     this.api.getUsers().subscribe((all) => {
-      debugger;
+      //debugger;
       console.log(all);
       this.usuarios = all.users;
     });

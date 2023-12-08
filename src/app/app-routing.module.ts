@@ -30,9 +30,9 @@ const routes: Routes = [
   },
   {
     path: 'camara',
+    canActivate: [TestGuard],
     loadChildren: () =>
       import('./camara/camara.module').then((m) => m.CamaraPageModule),
-    canActivate: [TestGuard],
   },
   {
     path: 'profe',

@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-restablecer',
   templateUrl: './restablecer.page.html',
   styleUrls: ['./restablecer.page.scss'],
 })
 export class RestablecerPage implements OnInit {
-  formulariousuario:FormGroup;
+  formulariousuario: FormGroup;
 
-  constructor(private fb:FormBuilder) { 
-    this.formulariousuario=this.fb.group({
-      nombre:[""],
-      contraseña:[""],
-    })
+  constructor(private fb: FormBuilder) {
+    this.formulariousuario = this.fb.group({
+      Correo: ['', [Validators.required, Validators.email]],
+    });
   }
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  alertButtons = ['Aceptar'];
 }
