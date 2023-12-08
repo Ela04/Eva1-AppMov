@@ -10,10 +10,16 @@ export class RestablecerPage implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.formulariousuario = this.fb.group({
-      Correo: ['', [Validators.required, Validators.email]],
+      Correo: ['',[
+        Validators.required,
+        Validators.minLength(3),
+        Validators.email],
+      ],
     });
   }
   ngOnInit() {}
+
+  
 
   alertButtons = ['Aceptar'];
 }

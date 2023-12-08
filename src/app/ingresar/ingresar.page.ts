@@ -102,7 +102,7 @@ export class IngresarPage implements OnInit {
         'Nombre de usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.'
       );
     }
-    }
+  }
 
   ngOnInit() {}
 }
