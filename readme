@@ -11,3 +11,5 @@ git merge estudiante
 git push u- origin estudiante
 git push
 git pull
+-----------------------------------------
+npm test
