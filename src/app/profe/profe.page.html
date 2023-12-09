@@ -55,7 +55,13 @@
       <br>
       <br>
       <ion-button color="medium" id="present-alert">Guardar</ion-button>
-      <ion-alert trigger="present-alert" class="custom-alert" header="Guardar cambios" [buttons]="alertButtons"></ion-alert>
+      <ion-alert
+        trigger="present-alert"
+        header="A Short Title Is Best"
+        subHeader="A Sub Header Is Optional"
+        message="A message should be a short, complete sentence."
+        [buttons]="alertButtons"
+      ></ion-alert>
   </ion-content>
 </div>
 </ion-content>
