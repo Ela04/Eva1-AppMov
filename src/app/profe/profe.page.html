@@ -4,6 +4,14 @@
       <ion-title>Perfil Docente</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-card>
+    <ion-card-content>
+      <qrcode [qrdata]="qrCodeString"
+       [width]="256" 
+       [errorCorrectionLevel]="'M'">
+      </qrcode>
+    </ion-card-content>
+  </ion-card>
   <ion-content class="ion-item" >
     <ion-footer [translucent]="true">
         <ion-item class="ion-padding">
