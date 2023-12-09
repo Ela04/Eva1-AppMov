@@ -9,17 +9,14 @@ import { RouterLink } from '@angular/router';
   templateUrl: './profe.page.html',
   styleUrls: ['./profe.page.scss'],
 })
-export class ProfePage implements OnInit{
-  usuarios!:any;
+export class ProfePage implements OnInit {
+  usuarios!: any;
   nombre!: string;
-  constructor(
-    private stateService: StateService,
-    public api: ApiService,
-  ) {
-  this.stateService.getNombre.subscribe((Alumno)=>{
-    this.nombre = Alumno;
-  })
-  };
+  constructor(private stateService: StateService, public api: ApiService) {
+    this.stateService.getNombre.subscribe((Alumno) => {
+      this.nombre = Alumno;
+    });
+  }
 
   qrCodeString = 'mensaje secreto';
 
@@ -31,4 +28,6 @@ export class ProfePage implements OnInit{
       this.usuarios = all.users;
     });
   }
+
+  alertButtons = ['Aceptar'];
 }
