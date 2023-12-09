@@ -1,8 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { StateService } from '../state/state.service';
 import { ApiService } from '../state/api.service';
-import { RouterLink } from '@angular/router';
-
+//import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-profe',

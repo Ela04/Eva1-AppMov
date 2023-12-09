@@ -6,10 +6,7 @@
   </ion-header>
   <ion-card>
     <ion-card-content>
-      <qrcode [qrdata]="qrCodeString"
-       [width]="256" 
-       [errorCorrectionLevel]="'M'">
-      </qrcode>
+      <qrcode [qrdata]="qrCodeString" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
     </ion-card-content>
   </ion-card>
   <ion-content class="ion-item" >
@@ -22,30 +19,30 @@
     </ion-footer>
   </ion-content>
 </ion-menu>
- <ion-content>
+<ion-content>
   <div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title color="secondary">Bienvenido {{nombre}} </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content [fullscreen]="true">
-    <ion-list lines="full">
-      <div *ngFor="let user of usuarios" >
-        <p>{{user.firstName}} {{user.lastName}}</p>
-        <li>
-          <ion-checkbox slot="start">Presente </ion-checkbox>
-          <ion-checkbox slot="end"> Ausente</ion-checkbox>
-        </li>
-    </div>
-    </ion-list>
-    <br>
-    <br>
-    <ion-button color="medium" id="present-alert">Guardar</ion-button>
-    <ion-alert trigger="present-alert" class="custom-alert" header="Guardar cambios" [buttons]="alertButtons"></ion-alert>
-  </ion-content>
-</div>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title color="secondary">Bienvenido {{nombre}} </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content [fullscreen]="true">
+      <ion-list lines="full">
+        <div *ngFor="let user of usuarios" >
+          <p>{{user.firstName}} {{user.lastName}}</p>
+          <li>
+            <ion-checkbox slot="start">Presente </ion-checkbox>
+            <ion-checkbox slot="end"> Ausente</ion-checkbox>
+          </li>
+      </div>
+      </ion-list>
+      <br>
+      <br>
+      <ion-button color="medium" id="present-alert">Guardar</ion-button>
+      <ion-alert trigger="present-alert" class="custom-alert" header="Guardar cambios" [buttons]="alertButtons"></ion-alert>
+    </ion-content>
+  </div>
 </ion-content>
