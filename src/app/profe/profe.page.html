@@ -6,9 +6,7 @@
   </ion-header>
   <ion-card>
     <ion-card-content>
-      <qrcode [qrdata]="qrCodeString"
-       [width]="256" 
-       [errorCorrectionLevel]="'M'">
+      <qrcode [qrdata]="qrCodeString" [width]="256" [errorCorrectionLevel]="'M'">
       </qrcode>
     </ion-card-content>
   </ion-card>
@@ -34,7 +32,7 @@
     </ion-footer>
   </ion-content>
 </ion-menu>
- <ion-content>
+<ion-content>
   <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
@@ -52,8 +50,17 @@
           <ion-checkbox slot="start">Presente</ion-checkbox>
           <ion-checkbox slot="end">Ausente</ion-checkbox>
         </li>
-    </div>
+      </div>
     </ion-list>
+      <br>
+      <br>
+      <ion-button color="medium" id="present-alert">Guardar</ion-button>
+      <ion-alert trigger="present-alert" class="custom-alert" header="Guardar cambios" [buttons]="alertButtons"></ion-alert>
   </ion-content>
 </div>
 </ion-content>
+<ion-footer >
+  <ion-toolbar>
+    <p> 2023 RegistrAPP. Todos los derechos reservados.</p>
+  </ion-toolbar>
+</ion-footer>

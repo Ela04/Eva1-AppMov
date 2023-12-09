@@ -111,7 +111,22 @@ ion-menu::part(container) {
 ion-button {
   display: flex;
   align-items: center;
+  font-size: 1.5em; 
+  padding:10px 20px;
 }
+
+.footer-estilos {
+  background-color: #f8f8f8; /* Color de fondo del footer */
+  color: #333; /* Color del texto del footer */
+  height: 40px; /* Altura del footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.texto-pequeno {
+  font-size: 14px; /* Tamaño del texto más pequeño */
+}
+
 
 @media (prefers-color-scheme: dark) {
   /*
